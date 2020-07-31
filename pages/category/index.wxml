@@ -1,0 +1,41 @@
+<view class="category">
+    <SearchInput></SearchInput>
+    <!-- 商品分类开始 -->
+    <view class="category_content">
+        <!-- 商品分类左侧导航 -->
+        <scroll-view scroll-y class="left_nav">
+            <view wx:for='{{catLeft}}' class="{{index===active?'active':''}}" wx:key="*this" bindtap="handleItemTap"
+                data-index="{{index}}">
+                {{item}}
+            </view>
+        </scroll-view>
+        <!-- 商品分类右侧内容 -->
+        <scroll-view scroll-top="{{scrollTop}}" scroll-y class="right_main">
+            <view 
+            wx:for="{{catRight}}" 
+            wx:for-item="item1" 
+            wx:for-index="index1" 
+            wx:key="cat_id"
+            >
+                <!-- 标题 -->
+                <text class="right_main_title" decode="true">/&nbsp;{{item1.cat_name}}&nbsp;/</text>
+                <!-- 主要内容 -->
+                <view class="right_main_content" >
+                    <navigator
+                    wx:for="{{item1.children}}" 
+                    wx:for-item="item2"
+                    wx:for-index="index2" 
+                    wx:key="cat_id"
+                    >
+                        <image mode='widthFix' src='{{item2.cat_icon}}'></image>
+                        <view class="content_text">
+                            {{item2.cat_name}}
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+
+        </scroll-view>
+    </view>
+    <!-- 商品分类结束 -->
+</view>

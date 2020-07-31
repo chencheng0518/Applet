@@ -1,54 +1,53 @@
-//index.js
-//获取应用实例
-const app = getApp()
-
+import {
+  request
+} from "../../request/index.js"; //引入文件
+import regeneratorRuntime from '../../lib/runtime/runtime.js';
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    //轮播图数组
+    swiperList: [],
+    //分类导航数组
+    sortList:[],
+    //楼层数组
+    floorList:[]
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+  //页面开始加载，就会触发
+  onLoad: function (options) {
+    //异步请求拿轮播图数据
+    //   wx.request({
+    //     url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata',
+    //     success:(res)=> {
+    //       this.setData({
+    //         swiperList:res.data.message
+    //       })
+    //     }
+    //   })
+    //调用getSwiperList方法
+    this.getSwiperList()
+    //调用getSortList方法
+    this.getSortList()
+    //调用getfloorList方法
+    this.getfloorList()
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
+  //换成es6的Promise来拿数据 优化代码 取轮播图数组数据
+  async getSwiperList() {
+        const res =await request({url: '/home/swiperdata'})    
         this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+          swiperList: res
         })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
+  //取分类导航数组数据
+  async getSortList() {
+   const res = await request({url:'/home/catitems'})
+        this.setData({
+          sortList: res
+        })
+  },
+  //取楼层数组数据
+  async getfloorList() {
+    const res =await request({url: '/home/floordata'})
+        this.setData({
+          floorList: res
+        })
   }
-})
+});
