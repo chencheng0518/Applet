@@ -1,2 +1,73 @@
-<!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<view class="goods_detail">
+    <!-- 轮播图开始 -->
+    <view class="swiper_wrap">
+        <swiper
+        autoplay 
+        circular
+        indicator-dots 
+        >
+            <swiper-item
+            wx:for="{{detailList.pics}}"
+            wx:key="pics_id"
+            bindtap="handlePrevewImage"
+            data-url="{{item.pics_mid}}"
+            >
+                <image mode="widthFix" src="{{item.pics_mid}}"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+
+    <!-- 轮播图结束 -->
+
+    <!-- 价格开始 -->
+    <view class="goods_price">￥{{detailList.goods_price}}</view>
+    <!-- 价格结束 -->
+    
+    <!-- 商品简介加收藏开始 -->
+    <view class="detail_name_row">
+        <!-- 商品简介 -->
+        <view class="goods_name">{{detailList.goods_name}}</view>
+        <!-- 收藏 -->
+        <view class="collection">
+            <text class="iconfont icon-icon_shouchang_xian"></text>
+            <view>收藏</view>
+        </view>
+    </view>  
+    <!-- 商品简介加收藏结束 -->
+    
+    <!-- 图文详情开始 -->
+    <view class="detail_info">
+        <view class="info_title">图文详情</view>
+        <!-- 富文本标签 -->
+        <rich-text nodes="{{detailList.goods_introduce}}"></rich-text>
+    </view>
+    <!-- 图文详情结束 -->
+
+    <!-- 底部工具栏开始 -->
+
+    <view class="detail_bottom_toolbar">
+        <view class="toolbar_item">
+            <view class="iconfont icon-kefu"></view>
+            <view>客服</view>
+            <button open-type="contact"></button>
+        </view>
+        <view class="toolbar_item">
+            <view class="iconfont icon-fenxiang-"></view>
+            <view>分享</view>
+            <button open-type="share"></button>
+        </view>
+        <navigator url="/pages/cart/index" open-type="switchTab" class="toolbar_item">
+            <view class="iconfont icon-share"></view>
+            <view>购物车</view>
+        </navigator>
+        <view class="toolbar_item toolbar_share" bindtap="handleShopping">
+            <view>加入购物车</view>
+        </view>
+        <view class="toolbar_item toolbar_purchase">
+            <view>立即购买</view>
+        </view>
+    </view>
+
+
+    <!-- 底部工具栏结束 -->
+</view>

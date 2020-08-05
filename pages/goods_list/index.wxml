@@ -1,2 +1,28 @@
-<!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<view class="list">
+    <SearchInput></SearchInput>
+    <!-- 监听自定义事件 tabsItemChange -->
+    <Tabs tabs="{{tabs}}" bindtabsItemChange="changeTabs">
+        <block wx:if="{{tabs[0].isActive}}">
+            <view class="tabs_wrap" >
+                <navigator 
+                wx:for="{{GoodsList}}"
+                wx:key="goods_id"
+                url="../goods_detail/index?id={{item.goods_id}}"
+                >
+                    <!-- 左侧图片 -->
+                    <view class="left_image">
+                        <image mode="widthFix" 
+                        src="{{item.goods_small_logo?item.goods_small_logo:'https://ww1.sinaimg.cn/large/007rAy9hgy1g24by9t530j30i20i2glm.jpg'}}"></image>
+                    </view>
+                    <!-- 右侧详情文字 -->
+                    <view class="right_datail">
+                        <view class="text">{{item.goods_name}}</view>
+                        <view class="price">￥{{item.goods_price}}</view>
+                    </view>
+                </navigator>
+            </view>
+        </block>
+        <block wx:if="{{tabs[1].isActive}}">暂不开放此功能</block>
+        <block wx:if="{{tabs[2].isActive}}">暂不开放此功能</block>
+    </Tabs>
+</view>

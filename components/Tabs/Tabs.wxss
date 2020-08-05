@@ -1,0 +1,15 @@
+.tabs .tabs_wrap {
+  display: flex;
+  height: 70rpx;
+  align-items: center;
+  justify-self: center;
+  text-align: center;
+  font-size: 35rpx;
+}
+.tabs .tabs_wrap .wrap_detail {
+  flex: 1;
+}
+.tabs .tabs_wrap .active {
+  color: var(--themeColor);
+  border-bottom: 5rpx solid var(--themeColor);
+}

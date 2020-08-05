@@ -1,0 +1,39 @@
+.list {
+    .tabs_wrap {
+        navigator {
+            display: flex;
+            justify-content: center;
+            border-bottom: 2rpx solid #ccc;
+
+            .left_image {
+                flex: 2;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                image {
+                    width: 70%;
+                }
+            }
+
+            .right_datail {
+                flex: 3;
+                display: flex;
+                justify-content: space-around;
+                flex-direction: column;
+
+                .text {
+                    display: -webkit-box;
+                    overflow: hidden;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                }
+
+                .price {
+                    font-size: 32rpx;
+                    color: var(--themeColor);
+                }
+            }
+        }
+    }
+}
