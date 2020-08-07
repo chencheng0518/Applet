@@ -92,6 +92,20 @@
 					"pathName": "pages/cart/index",
 					"query": "id=43985",
 					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "支付中心",
+					"pathName": "pages/pay/index",
+					"query": "id=43985",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付授权",
+					"pathName": "pages/auth/index",
+					"query": "id=43985",
+					"scene": null
 				}
 			]
 		}

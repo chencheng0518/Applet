@@ -1,66 +1,31 @@
-// pages/auth/index.js
+import {
+  login
+} from "../../utils/asyncWx.js"
+import regeneratorRuntime from '../../lib/runtime/runtime.js'
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    //支付授权
+ async handleGetUserInfo(e) {
+    //1、获取用户信息
+    const { encryptedData, rawData, iv, signature } = e.detail;
+    //2、获取小程序登录成功后的code
+    const {code} = await login();
+    const loginParams = { encryptedData, rawData, iv, signature, code };
+    //3、发送请求，获取用户的token 非企业账号拿不到
+    wx.request({
+      url: 'https://api-hmugo-web.itheima.net/api/public/v1/users/wxlogin',
+      data: {loginParams},
+      method: 'post',
+      success: function(res){
+        console.log(res);
+      }
+    })
+    //4、自己定义的token
+    const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIzLCJpYXQiOjE1NjQ3MzAwNzksImV4cCI6MTAwMTU2NDczMDA3OH0.YPt-XeLnjV-_1ITaXGY2FhxmCe4NvXuRnRB8OMCfnPo";
+    
+    //5、将token存入缓存中，同时跳转回上一个页面
+    wx.setStorageSync('token', token);
+    wx.navigateBack({
+      delta: 1, // 回退前 delta(默认为1) 页面
+    })
   }
 })
