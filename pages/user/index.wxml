@@ -1,2 +1,95 @@
-<!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
+<!--  个人信息开始-->
+<view class="user_button_image_wrap">
+    <!-- 如果存在个人信息等数据就显示 -->
+<view class="user_wrap" wx:if="{{userInfo.nickName}}" >
+    <!-- 背景图 -->
+        <image class="user_map" src="{{userInfo.avatarUrl}}"></image>
+    <!-- 缩略图以及昵称 -->
+    <view class="user_info">
+        <!-- 缩略图 -->
+            <image class="info_Abbreviation" src="{{userInfo.avatarUrl}}"></image>
+        <!-- 昵称 -->
+        <view class="info_name">{{userInfo.nickName}}</view>
+    </view>
+</view>
+<!-- 如果没有个人信息就显示下面的 -->
+<view class="user_button" wx:else>
+    <navigator url="/pages/login/index" >登录</navigator>
+</view>
+    
+</view>
+<!-- 个人信息结束 -->
+
+
+
+<view class="user_content">
+    <view class="user_main">
+        <!-- 收藏的店铺 -->
+        <view class="user_collection">
+            <navigator class="collection_wrap">
+                <view class="wrap_num">0</view>
+                <view class="wrap_text">收藏的店铺</view>
+            </navigator>
+
+            <navigator class="collection_wrap">
+                <view class="wrap_num">0</view>
+                <view class="wrap_text">收藏的商品</view>
+            </navigator>
+
+            <navigator class="collection_wrap">
+                <view class="wrap_num">0</view>
+                <view class="wrap_text">关注的商品</view>
+            </navigator>
+
+            <navigator class="collection_wrap">
+                <view class="wrap_num">0</view>
+                <view class="wrap_text">我的足迹</view>
+            </navigator>
+        </view>
+
+        <!-- 我的订单 -->
+        <view class="user_order">
+            <!-- 标题 -->
+            <view class="order_title">我的订单</view>
+            <!-- 内容 -->
+            <view class="order_dedail">
+                
+                <navigator class="order_main">
+                   <view class="iconfont icon-icon- "></view> 
+                    <view class="order_text">全部订单</view>
+                </navigator>
+
+                <navigator class="order_main">
+                    <view class="iconfont .icon-daifukuan1-copy "></view> 
+                     <view class="order_text">待付款</view>
+                 </navigator>
+
+                 <navigator class="order_main">
+                    <view class="iconfont .icon-daishouhuo "></view> 
+                     <view class="order_text">待收货</view>
+                 </navigator>
+
+                 <navigator class="order_main">
+                    <view class="iconfont .icon-tuihuotuikuan "></view> 
+                     <view class="order_text">退货/退款</view>
+                 </navigator>
+            </view>
+        </view>
+
+        <!-- 收货地址管理 -->
+        <navigator class="user_address">收货地址管理</navigator>
+
+        <!-- 联系客服 -->
+        <view class="user_info_wrap">
+            <view class="info_text contact">
+                <view class="contact_text">联系客服</view>
+                <view>400-618-4000</view>
+            </view>
+            <view class="info_text">意见反馈</view>
+            <view class="info_text">关于我们</view>
+        </view>
+
+        <!-- 把应用推荐给其他人 -->
+        <view class="user_recommend">把应用推荐给其他人</view>
+    </view>
+</view>

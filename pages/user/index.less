@@ -1,0 +1,133 @@
+page {
+    background-color: #edece8;
+}
+//个人信息
+.user_button_image_wrap {
+    height: 45vh;
+    overflow: hidden;
+    background-color: var(--themeColor);
+    position: relative;
+
+    .user_button {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 90rpx;
+        width: 150rpx;
+        border: 1px solid green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #08f708;
+        font-size: 38rpx;
+    }
+
+    .user_wrap {
+        position: relative;
+
+        .user_map {
+            height: 50vh;
+            filter: blur(10rpx);
+            width: 100%;
+        }
+
+        .user_info {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 20%;
+            text-align: center;
+            
+            .info_Abbreviation {
+                    width: 150rpx;
+                    height: 150rpx;
+                    border-radius: 50%;
+            }
+
+            .info_name {
+                margin-top: 35rpx;
+                font-size: 30rpx;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.user_content{
+    position: relative;
+    height: 55vh;
+    .user_main{
+        position: absolute;
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -6%;
+        padding-bottom: 50rpx;
+        //收藏的店铺
+        .user_collection{
+            background-color: #fff;
+            display: flex;
+            text-align: center;
+            .collection_wrap{
+                flex: 1;
+                padding: 10rpx 0;
+                .wrap_num{
+                    color: var(--themeColor);
+                }
+            }
+        }
+        //我的订单
+        .user_order{
+            //标题
+            background-color: #fff;
+            margin-top: 30rpx;
+
+            .order_title{
+                border-bottom: 1px solid #ccc;
+                padding: 20rpx 0 20rpx 20rpx;
+            }
+
+            //内容
+            .order_dedail{
+                 display: flex;
+                text-align: center;
+                .order_main{
+                    flex: 1;
+                    padding: 20rpx;
+                    .iconfont{
+                        color: var(--themeColor);
+                    }
+                }
+            }
+        }
+        //收货地址管理
+        .user_address{
+            padding: 20rpx;
+            background-color: #fff;
+            margin-top: 30rpx;
+        }
+
+        //联系客服
+        .user_info_wrap{
+            margin-top: 30rpx;
+            background-color: #fff;
+            .info_text{
+                padding: 20rpx;
+                border-bottom: 1px solid #ccc;
+            }
+            .contact{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        //把应用推荐给其他人
+        .user_recommend{
+            padding: 20rpx;
+            margin-top: 30rpx;
+            background-color: #fff;
+        }
+    }
+}
