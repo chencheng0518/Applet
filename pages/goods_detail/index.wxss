@@ -34,6 +34,9 @@
   align-items: center;
   border-left: 1rpx solid #000;
 }
+.goods_detail .detail_name_row .collection .icon-icon_shouchangz_m {
+  color: var(--themeColor);
+}
 .goods_detail .detail_info .info_title {
   font-size: 32rpx;
   color: var(--themeColor);
@@ -59,7 +62,7 @@
   font-size: 30rpx;
   position: relative;
 }
-.goods_detail .detail_bottom_toolbar .toolbar_item button{
+.goods_detail .detail_bottom_toolbar .toolbar_item button {
   position: absolute;
   padding: 0;
   left: 0;

@@ -62,7 +62,8 @@ Page({
    */
   onLoad: function (options) {
     //options.cid里是分类id
-    this.QueryList.cid = options.cid;
+    this.QueryList.cid=options.cid||"";
+    this.QueryList.query = options.query || "";
     this.getGoodsList()
   },
   async getGoodsList() {

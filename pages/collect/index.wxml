@@ -1,2 +1,28 @@
-<!--pages/collect/index.wxml-->
-<text>pages/collect/index.wxml</text>
+<Tabs tabs="{{tabs}}" bindtabsItemChange="changeTabs"></Tabs>
+
+<view class="collect_title">
+    <view class="title_item whole">全部</view>
+    <view class="title_item">正在热卖</view>
+    <view class="title_item">即将上线</view>
+</view>
+
+<!-- 收藏的商品 -->
+<view class="collect_info_wrap">
+    <navigator class="collect_datail"
+    wx:for="{{collect}}"
+    wx:key="goods_id"
+    url="../goods_detail/index?id={{item.goods_id}}"
+    >
+        <!-- 左侧图片 -->
+        <view class="item_image">
+            <image mode="widthFix" src="{{item.goods_big_logo}}"></image>
+        </view>
+        <!-- 右侧详情 -->
+        <view class="item_info">
+            <!-- 上面文字简介 -->
+            <view class="info_title">{{item.goods_name}}</view>
+            <!-- 下面价格 -->
+            <view class="info_price">￥{{item.goods_price}}</view>
+        </view>
+    </navigator>
+</view>

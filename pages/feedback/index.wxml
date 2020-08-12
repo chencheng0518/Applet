@@ -1,2 +1,1 @@
-<!--pages/feedback/index.wxml-->
-<text>pages/feedback/index.wxml</text>
+<button type="primary" plain bindtap="handleButton">查看当前位置</button>

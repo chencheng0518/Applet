@@ -16,7 +16,6 @@
             </swiper-item>
         </swiper>
     </view>
-
     <!-- 轮播图结束 -->
 
     <!-- 价格开始 -->
@@ -28,8 +27,8 @@
         <!-- 商品简介 -->
         <view class="goods_name">{{detailList.goods_name}}</view>
         <!-- 收藏 -->
-        <view class="collection">
-            <text class="iconfont icon-icon_shouchang_xian"></text>
+        <view class="collection" bindtap="handleCollection">
+            <text class="iconfont {{isCollect?'icon-icon_shouchangz_m':'icon-icon_shouchang_xian'}}"></text>
             <view>收藏</view>
         </view>
     </view>  
@@ -44,12 +43,11 @@
     <!-- 图文详情结束 -->
 
     <!-- 底部工具栏开始 -->
-
     <view class="detail_bottom_toolbar">
         <view class="toolbar_item">
             <view class="iconfont icon-kefu"></view>
             <view>客服</view>
-            <button open-type="contact"></button>
+            <button  open-type="contact"></button>
         </view>
         <view class="toolbar_item">
             <view class="iconfont icon-fenxiang-"></view>
@@ -67,7 +65,5 @@
             <view>立即购买</view>
         </view>
     </view>
-
-
     <!-- 底部工具栏结束 -->
 </view>
